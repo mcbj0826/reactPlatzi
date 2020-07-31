@@ -5,16 +5,16 @@ class BadgeForm extends React.Component {
     // handleChange = e => this.setState({[e.target.name]: e.target.value,})
     // console.log({ name: e.target.name, value: e.target.value})
     handleClick = e => console.log("Button was clicked")
-    handleSubmit = e =>  { 
-        e.preventDefault() 
-        console.log("Form Was Submitted")
-        console.log(this.state)
-    }
+    // handleSubmit = e =>  { 
+    //     e.preventDefault() 
+    //     console.log("Form Was Submitted")
+    //     console.log(this.state)
+    // }
     render () {
         return (
             <div>
                 <h1>New Attendement</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.props.onSubmit}>
                     <div className="form-group">
                         <label >First Name</label>
                         <input onChange={this.props.onChange} className="form-control" type="text" name="firstName" value={this.props.formValues.firstName}/>

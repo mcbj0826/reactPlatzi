@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Gravatar from'./Gravatar'
 
 class BadgesList extends React.Component {
 
@@ -20,6 +21,7 @@ class BadgesList extends React.Component {
                             <li key= {badge.id}>
                                 <p>{badge.firstName}{badge.lastName}</p> 
                             </li>
+                        
                             )
                     })
                 }
