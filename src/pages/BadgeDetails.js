@@ -6,9 +6,22 @@ import Badge from '../components/Badge'
 import Modal from '../components/Modal'
 import DeleteBadgeModal from '../components/DeleteBadgeModal'
 
+function useIncreaseCount(max) {
+    const [count, setCount] = React.useState(0)
+
+    if(count > max) {
+        setCount(0)
+    }
+
+    return [count, setCount]
+
+}
+
 
 function BadgeDetails(props){
+    const [count, setCount] = useIncreaseCount(4)
     const badge = props.badge
+
     return (
         <div>
         <div className="BadgeDetails__hero">
@@ -30,7 +43,11 @@ function BadgeDetails(props){
                 <div className="col">
                     <h2>Actions</h2>
                     <div>
-                        <div><Link className= "btn btn-primary mb-4" to={`/badges/${badge.id}/edit`}>Edit</Link></div>
+                        <div>
+                            <button onClick= {() => {
+                                setCount(count+1)
+                            }} className="btn btn-primary mr-4">Increase Count: {count}</button>
+                            <Link className= "btn btn-primary mb-4" to={`/badges/${badge.id}/edit`}>Edit</Link></div>
                     </div>
                     <div>
                         <div><button onClick={props.onOpenModal} className= "btn btn-danger">Delete</button>
